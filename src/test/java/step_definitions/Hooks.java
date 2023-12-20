@@ -14,11 +14,15 @@ public class Hooks {
     @Before
     public void openBrowser(){
         ChromeOptions a = new ChromeOptions();
+        a.addArguments("--no-sandbox");
+        a.addArguments("--disable-dev-shm-usage");
+        a.addArguments("--headless");
+        a.addArguments("--window-size=1920,1080");
         a.addArguments("--remote-allow-origins=*");
         WebDriverManager.chromedriver().setup();
 
         webDriver = new ChromeDriver();
-        String appUrl = "https://www..com/";
+        String appUrl = "https://www.travelio.com/";
         webDriver.get(appUrl);
         webDriver.manage().window().maximize();
     }
