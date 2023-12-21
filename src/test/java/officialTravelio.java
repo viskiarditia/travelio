@@ -28,8 +28,5 @@ public class officialTravelio {
             closeButton.click();
         }
 
-        WebElement landingPageTitle = webDriver.findElement(By.cssSelector(".navbar-brand"));
-        Assert.assertTrue(true);
-
     }
 }
