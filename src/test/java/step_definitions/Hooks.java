@@ -8,6 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.io.File;
+
 public class Hooks {
     public static WebDriver webDriver;
 
@@ -19,9 +21,10 @@ public class Hooks {
         a.addArguments("--headless");
         a.addArguments("--window-size=1920,1080");
         a.addArguments("--remote-allow-origins=*");
+        a.addArguments("--incognito");
         WebDriverManager.chromedriver().setup();
 
-        webDriver = new ChromeDriver();
+        webDriver = new ChromeDriver(a);
         String appUrl = "https://www.travelio.com/";
         webDriver.get(appUrl);
         webDriver.manage().window().maximize();
